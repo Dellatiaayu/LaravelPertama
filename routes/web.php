@@ -21,3 +21,11 @@ Route::get('/friends', [App\Http\Controllers\CobaController::class, 'index']);
 Route::get('/friends/create', [App\Http\Controllers\CobaController::class, 'create']);
 
 Route::post('/friends', [App\Http\Controllers\CobaController::class, 'store']);
+
+Route::get('/friends/{id}', [App\Http\Controllers\CobaController::class, 'show']);
+
+Route::get('/friends/{id}/edit', [App\Http\Controllers\CobaController::class, 'edit']);
+
+Route::put('/friends/{id}', [App\Http\Controllers\CobaController::class, 'update']);
+
+Route::delete('/friends/{id}', [App\Http\Controllers\CobaController::class, 'destroy']);
