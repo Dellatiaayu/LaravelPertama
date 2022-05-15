@@ -8,7 +8,7 @@
     @csrf
   <div class="form-group">
     <label for="nama">Nama</label>
-    <input type="text" class="form-control" id="name" name="nama" value="{{ old('nama') }}">
+    <input type="text" class="form-control" id="nama" name="nama" value="{{ old('nama') }}">
     @error('nama')
     <div class="alert alert-danger">{{ $message }}</div>
     @enderror
