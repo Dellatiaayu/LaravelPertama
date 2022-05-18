@@ -14,7 +14,7 @@ class GroupsController extends Controller
      */
     public function index()
     {
-        $groups = groups::orderBy('id', 'desc')->paginate(3);
+        $groups = groups::orderBy('id', 'desc')->paginate();
 
         return view ('groups.index', compact('groups'));
     }

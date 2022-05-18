@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Coba')
+@section('title', 'Detail')
 
 @section('content')
     Urutan ke - {{ $ke }}
