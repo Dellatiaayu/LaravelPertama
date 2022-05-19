@@ -8,6 +8,7 @@
         <h3> Nama Group : {{$group['name'] }} </h3>
         <h3> Deskripsi : {{ $group['description'] }} </h3>
         <h3> Jumlah Anggota Group : {{$group['jml_anggota']}}</h3>
+        <h3> Jumlah Anggota Yang Pernah Masuk Grup  : {{$group['anggota_masuk']}}</h3>
 
     </div>
 </div>
