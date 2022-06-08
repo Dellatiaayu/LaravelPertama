@@ -22,10 +22,23 @@
           <a href="/groups/{{ $group['id'] }}" class="card-title">{{ $group['name'] }}</a>
           <p class="card-text">{{ $group['description'] }}</p>
           <hr>
-            <a href="" class="card-link btn btn-primary">Tambah Anggota Teman</a>
+            <a href="/groups/addmember/{{ $group['id'] }}" class="card-link btn btn-primary">Tambah Anggota Teman</a>
+
+            <ol class="list-group list-group-numbered">
               @foreach ($group->friends as $friend)
-                <li>  {{$friend->nama}}</li>
-             @endforeach
+
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                  {{$friend->nama}}
+                  <form action="/groups/deleteaddmember/{{ $friend->id}}" method="POST">
+                    @csrf
+                    @method('PUT')
+                  <button type="submit" class="card-link  btn btn-danger">X</button>
+                  </form>
+                </li>
+            
+              @endforeach
+            </ol>
+
           <hr>
           <a href="/groups/{{ $group['id']}}/edit" class="card-link  btn btn-warning">Edit Group</a>
           <form action="/groups/{{ $group['id']}}" method="POST">
