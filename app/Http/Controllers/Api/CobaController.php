@@ -33,7 +33,35 @@ class CobaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama' => 'required|unique:friends|max:255',
+            'no_tlp' => 'required|numeric',
+            'alamat' => 'required',
+        ]);
+
+        $friends = Friends::create([
+            'nama' => $request->nama,
+            'no_tlp' => $request->no_tlp,
+            'alamat' => $request->alamat,
+            'group' => $request->group,
+            'masuk_grup' => $request->masuk_grup,
+
+        ]);
+
+        if($friends){
+            return response()->json([
+                'success' => true,
+                'message' => 'Teman berhasil di tambahkan',
+                'data' => $friends
+            ], 200);
+        }else {
+            return response()->json([
+                'success' => false,
+                'message' => 'Teman gagal di tambahkan',
+                'data' => $friends
+            ], 409);
+        }
+
     }
 
     /**
